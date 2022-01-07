@@ -1,0 +1,28 @@
+const ROLES_DEFINITION = {
+  CREATE_USER: "CREATE_USER",
+  GET_USERS: "GET_USERS",
+  UPDATE_USER: "UPDATE_USER",
+  DELETE_USER: "DELETE_USER",
+  UPDATE_USER_ROLE: "UPDATE_USER_ROLE"
+};
+
+const ALL_ROLES = {
+  user: [],
+  manager: [ROLES_DEFINITION.GET_USERS],
+  admin: [
+    ROLES_DEFINITION.CREATE_USER,
+    ROLES_DEFINITION.DELETE_USER,
+    ROLES_DEFINITION.GET_USERS,
+    ROLES_DEFINITION.UPDATE_USER,
+    ROLES_DEFINITION.UPDATE_USER_ROLE,
+  ],
+};
+
+const roles = Object.keys(ALL_ROLES);
+const roleRights = new Map(Object.entries(ALL_ROLES));
+
+module.exports = {
+  roles,
+  roleRights,
+  ROLES_DEFINITION,
+};
